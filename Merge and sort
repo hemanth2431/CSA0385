@@ -1,0 +1,33 @@
+#include <stdio.h>
+int main() {
+    int a1[] = {1, 3, 5, 7};
+    int a2[] = {2, 4, 6, 8};
+    int n1 =4;
+    int n2 = 4;
+    int k = n1 + n2;
+    int a[k];
+    for (int i = 0; i < n1; i++)
+        a[i] = a1[i];
+    for (int i = 0; i < n2; i++)
+        a[n1 + i] = a2[i];
+    for (int i = 0; i <k; i++) 
+        printf("%d", a[i]);
+    printf("\n");
+    int  temp;
+    // Bubble Sort algorithm
+    for (int p = 0; p < k-1; p++) {
+        for (int q = 0; q < k-p-1; q++) {
+            if (a[q] > a[q+1]) {
+                temp = a[q];
+                a[q] = a[q+1];
+                a[q+1] = temp;
+            }
+        }
+    }
+    
+    // Printing the sorted array
+    for (int p = 0; p< k; p++) {
+        printf("%d ", a[p]);
+    }
+
+}
