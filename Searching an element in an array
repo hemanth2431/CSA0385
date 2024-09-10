@@ -1,0 +1,22 @@
+#include<stdio.h>
+int main()
+{
+int arr[]={2,6,4,9,1,34,22,66,75};
+    int n=9;
+int search=22;
+    int found=0;
+for(int i=0;i<n;i++)
+    {
+ if(arr[i]==search)
+        {
+printf("elemrnt found at index %d",i);
+            found=1;
+            break;
+}
+}
+ if(!found)
+    {
+ printf("element not found");
+    }
+return 0;
+}
