@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int value;
+    struct Node* left;
+    struct Node* right;
+};
+struct Node* createNode(int value) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->value = value;
+    newNode->left = NULL;
+    newNode->right = NULL;
+    return newNode;
+}
+void inorderTraversal(struct Node* node) {
+    if (node == NULL) return;
+    inorderTraversal(node->left);
+    printf("%d ", node->value);
+    inorderTraversal(node->right);
+}
+void postorderTraversal(struct Node* node) {
+    if (node == NULL) return;
+    postorderTraversal(node->left);
+    postorderTraversal(node->right);
+    printf("%d ", node->value);
+}
+int main() {
+    struct Node* root = createNode(3);
+    root->left = createNode(9);
+    root->right = createNode(20);
+    root->right->left = createNode(15);
+    root->right->right = createNode(17);
+    printf("Inorder Traversal: ");
+    inorderTraversal(root);
+    printf("\n");
+    printf("Postorder Traversal: ");
+    postorderTraversal(root);
+    printf("\n");
+    return 0;
+}
